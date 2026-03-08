@@ -1,0 +1,132 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eef2f5;
+    color: #333;
+    padding: 30px 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    max-width: 1100px;
+}
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+h3 {
+    color: #2c3e50;
+    margin-top: 30px;
+}
+.table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+th {
+    background-color: #3f6b4d;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+tr:hover {
+    background-color: #f8faf9;
+}
+.special-price-hint {
+    display: block;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+input[type="number"], input[type="text"] {
+    width: 100px;
+    padding: 10px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: #3f6b4d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(63, 107, 77, 0.2);
+}
+.item-total {
+    font-weight: 700;
+    color: #2c3e50;
+}
+.total-container {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: right;
+}
+#totalSum {
+    margin: 0;
+    color: #3f6b4d;
+    font-size: 28px;
+}
+.form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: center;
+}
+form input[type="number"], form input[type="text"] {
+    width: 100%;
+}
+button {
+    padding: 12px 20px;
+    background-color: #3f6b4d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 40px;
+}
+button:hover {
+    background-color: #2e5139;
+}
+.delete-btn {
+    background-color: #fff;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    padding: 8px 12px;
+    height: auto;
+}
+.delete-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+}

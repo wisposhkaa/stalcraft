@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Мякоть солевика",
+        "price": 1900,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Аномальная плазма",
+        "price": 2000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Мякоть сластены",
+        "price": 8300,
+        "special_price": 8500,
+        "special_threshold": 500
+    },
+    {
+        "name": "Аномальная пыль",
+        "price": 270,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Мякоть кубоарбуза",
+        "price": 600,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Сахар",
+        "price": 3900,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Мякоть лимонника",
+        "price": 1000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Темный лимб",
+        "price": 135000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Мультитул",
+        "price": 3500,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Пурпурные минералы",
+        "price": 300,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Набор болтов",
+        "price": 4500,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Алые минералы",
+        "price": 300,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Остатки приборов шепота",
+        "price": 30000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Батарея холодного синтеза",
+        "price": 4000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Железо",
+        "price": 700,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Газовый баллон",
+        "price": 5650,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Дрожжи",
+        "price": 2000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Аммиак",
+        "price": 8000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Ткань",
+        "price": 1000,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Янтарная полынь",
+        "price": 6500,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Сковорода/кастрюля",
+        "price": 1800,
+        "special_price": null,
+        "special_threshold": null
+    },
+    {
+        "name": "Чертоцвет",
+        "price": 800,
+        "special_price": null,
+        "special_threshold": null
+    }
+]

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор предметов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор стоимости</h1>
+
+        <div class="table-container">
+            <table id="itemsTable">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Кол-во</th>
+                        <th>Итоговая</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total-container">
+            <h2 id="totalSum">Общая стоимость: 0</h2>
+        </div>
+
+        <h3>Добавить новый предмет</h3>
+        <div class="form-container">
+            <form id="addItemForm">
+                <div class="input-group">
+                    <input type="text" id="newName" placeholder="Название" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="newPrice" placeholder="Базовая цена" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="newSpecialPrice" placeholder="Особая цена (опционально)">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="newThreshold" placeholder="От скольки штук (опционально)">
+                </div>
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        async function loadData() {
+            const response = await fetch('/api/items');
+            const items = await response.json();
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                
+                let priceText = item.price;
+                if (item.special_price && item.special_threshold) {
+                    priceText += ` <span class="special-price-hint">(От ${item.special_threshold} шт. по ${item.special_price})</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${priceText}</td>
+                    <td><input type="number" min="0" value="0" data-index="${index}" class="qty-input"></td>
+                    <td class="item-total">0</td>
+                    <td><button class="delete-btn" onclick="deleteItem(${index})">Удалить</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.querySelectorAll('.qty-input').forEach(input => {
+                input.addEventListener('input', () => calculateTotals(items));
+            });
+            
+            calculateTotals(items);
+        }
+
+        function calculateTotals(items) {
+            let grandTotal = 0;
+            const inputs = document.querySelectorAll('.qty-input');
+            const totals = document.querySelectorAll('.item-total');
+
+            inputs.forEach((input, index) => {
+                const qty = parseInt(input.value) || 0;
+                const item = items[index];
+                let currentPrice = item.price;
+
+                if (item.special_price && item.special_threshold && qty >= item.special_threshold) {
+                    currentPrice = item.special_price;
+                }
+
+                const lineTotal = qty * currentPrice;
+                totals[index].textContent = lineTotal.toLocaleString('ru-RU');
+                grandTotal += lineTotal;
+            });
+
+            document.getElementById('totalSum').textContent = `Общая стоимость: ${grandTotal.toLocaleString('ru-RU')}`;
+        }
+
+        document.getElementById('addItemForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newItem = {
+                name: document.getElementById('newName').value,
+                price: parseInt(document.getElementById('newPrice').value),
+                special_price: document.getElementById('newSpecialPrice').value ? parseInt(document.getElementById('newSpecialPrice').value) : null,
+                special_threshold: document.getElementById('newThreshold').value ? parseInt(document.getElementById('newThreshold').value) : null
+            };
+
+            await fetch('/api/items', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newItem)
+            });
+
+            e.target.reset();
+            loadData();
+        });
+
+        async function deleteItem(index) {
+            await fetch(`/api/items/${index}`, {
+                method: 'DELETE'
+            });
+            loadData();
+        }
+
+        loadData();
+    </script>
+</body>
+</html>
