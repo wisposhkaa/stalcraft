@@ -70,7 +70,7 @@
                     <td>${priceText}</td>
                     <td><input type="number" min="0" value="0" data-index="${index}" class="qty-input"></td>
                     <td class="item-total">0</td>
-                    <td><button class="delete-btn" onclick="deleteItem(${index})">Удалить</button></td>
+                    <td><button class="delete-btn" onclick="deleteItem(${item.id})">Удалить</button></td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -124,8 +124,8 @@
             loadData();
         });
 
-        async function deleteItem(index) {
-            await fetch(`/api/items/${index}`, {
+        async function deleteItem(id) {
+            await fetch(`/api/items/${id}`, {
                 method: 'DELETE'
             });
             loadData();
