@@ -96,7 +96,7 @@ input[type="number"]:focus, input[type="text"]:focus {
 }
 form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
     align-items: center;
 }
@@ -119,6 +119,10 @@ button {
 button:hover {
     background-color: #2e5139;
 }
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
 .delete-btn {
     background-color: #fff;
     color: #e74c3c;
@@ -128,5 +132,25 @@ button:hover {
 }
 .delete-btn:hover {
     background-color: #e74c3c;
+    color: white;
+}
+.edit-btn {
+    background-color: #fff;
+    color: #3498db;
+    border: 1px solid #3498db;
+    padding: 8px 12px;
+    height: auto;
+}
+.edit-btn:hover {
+    background-color: #3498db;
+    color: white;
+}
+#cancelBtn {
+    background-color: #fff;
+    color: #7f8c8d;
+    border: 1px solid #7f8c8d;
+}
+#cancelBtn:hover {
+    background-color: #7f8c8d;
     color: white;
 }

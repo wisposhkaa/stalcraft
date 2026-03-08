@@ -26,6 +26,12 @@ def add_item():
     supabase.table('items').insert(new_item).execute()
     return jsonify({"status": "success"})
 
+@app.route('/api/items/<int:item_id>', methods=['PUT'])
+def update_item(item_id):
+    updated_data = request.json
+    supabase.table('items').update(updated_data).eq('id', item_id).execute()
+    return jsonify({"status": "success"})
+
 @app.route('/api/items/<int:item_id>', methods=['DELETE'])
 def delete_item(item_id):
     supabase.table('items').delete().eq('id', item_id).execute()
